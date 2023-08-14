@@ -18,4 +18,4 @@ jobs:
         run: yarn install
 
       - name: Build next app
-        run: cd apps/next && yarn build
+        run: cd apps/next && npm run build
