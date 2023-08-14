@@ -1,0 +1,25 @@
+name: Cypress
+on:
+  schedule:
+    - cron: '0 7,23 * * *'  # once at 7am, once at 23pm
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          start: yarn dev
+          browser: chrome
+          working-directory: apps/next
+          wait-on: 'http://localhost:8000'
+          install-command: yarn --silent
+          env: NEXT_PUBLIC_STAGE=preview,NODE_ENV=development
+        env:
+          CYPRESS_NEXT_PUBLIC_STAGE: preview
+          CYPRESS_NODE_ENV: development

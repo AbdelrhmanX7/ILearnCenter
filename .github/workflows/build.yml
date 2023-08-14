@@ -1,0 +1,21 @@
+name: build-site
+
+on:
+  pull_request:
+    branches:
+      - '**' # on any branch
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Project Dependencies
+        run: yarn install
+
+      - name: Build next app
+        run: cd apps/next && yarn build
