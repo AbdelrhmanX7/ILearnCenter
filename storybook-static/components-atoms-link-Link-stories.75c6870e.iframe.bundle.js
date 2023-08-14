@@ -1,0 +1,1 @@
+(self.webpackChunki_learn_center=self.webpackChunki_learn_center||[]).push([[245],{"./src/components/atoms/link/Link.stories.tsx":()=>{}}]);
