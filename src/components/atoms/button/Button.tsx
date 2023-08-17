@@ -17,7 +17,7 @@ export const Button = ({
   return (
     <button
       className={classNames(
-        "py-2.5 px-4 duration-300 hover:opacity-80 text-white rounded-lg !font-medium min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-[0,1px,2px,0,_rgba(0,0,0,0.05)]",
+        "py-2.5 px-4 duration-300 active:scale-95 hover:opacity-80 text-white rounded-lg !font-medium min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-[0,1px,2px,0,_rgba(0,0,0,0.05)]",
         icon && "!px-3",
         generateButtonStyle({ emphasis, variant, danger }),
         (disabled || isLoading) && "!cursor-not-allowed",

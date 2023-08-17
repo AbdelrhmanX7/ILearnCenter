@@ -10,9 +10,9 @@ export const generateButtonStyle = ({
       if (danger) return "!border-[#ff3f2d] text-[#ff3f2d]";
       switch (variant) {
         case "primary":
-          return "border-[#333333] text-[#333333]";
+          return "border-[#2a2f42] text-[#2a2f42]";
         case "secondary":
-          return "border-[#22A7F0] text-[#22A7F0]";
+          return "border-[#4096ff] text-[#4096ff]";
         case "tertiary":
           return "bg-white border-[#d1d5db] !text-[#111827]";
         default:
@@ -22,9 +22,9 @@ export const generateButtonStyle = ({
       if (danger) return "!bg-[#ff3f2d] !border-[#ff3f2d]";
       switch (variant) {
         case "primary":
-          return "bg-[#333333] border-[#d1d5db]";
+          return "bg-[#2a2f42] border-[#d1d5db]";
         case "secondary":
-          return "bg-[#22A7F0] border-[#22A7F0]";
+          return "bg-[#4096ff] border-[#4096ff]";
         case "tertiary":
           return "bg-white border-[#d1d5db] !text-[#111827]";
         default:
