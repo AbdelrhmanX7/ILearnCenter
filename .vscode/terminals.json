@@ -1,0 +1,36 @@
+{
+    "autorun": false,
+    "autokill": true,
+    "terminals": [
+      {
+        "name": "Next",
+        "description": "",
+        "icon": "heart-filled",
+        "color": "terminal.ansiRed",
+        "commands": ["yarn dev"],
+        "open": true,
+        "focus": true
+      },
+      {
+        "name": "Storybook",
+        "description": "",
+        "icon": "repo",
+        "color": "terminal.ansiMagenta",
+        "open": true
+      },
+      {
+        "name": "Github",
+        "description": "",
+        "icon": "github",
+        "color": "terminal.ansiCyan",
+        "open": true
+      },
+      {
+        "name": "Packages",
+        "description": "",
+        "icon": "package",
+        "color": "terminal.ansiGreen",
+        "open": true
+      }
+    ]
+  }
