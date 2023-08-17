@@ -13,6 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        item: "shadow-[0,1px,2px,0,_rgba(0,0,0,0.05)]",
+      },
       fontFamily: {
         "montserrat-medium": ["Montserrat-Medium"],
         "montserrat-semibold": ["Montserrat-SemiBold"],
