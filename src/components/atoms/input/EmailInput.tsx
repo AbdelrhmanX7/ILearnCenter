@@ -8,7 +8,7 @@ export const EmailInput = ({ ...props }: InputProps) => {
       <p className="font-montserrat-semibold text-black">Email</p>
       <Input
         size="large"
-        placeholder="large size"
+        placeholder="Email"
         type="email"
         prefix={<UserOutlined />}
         allowClear

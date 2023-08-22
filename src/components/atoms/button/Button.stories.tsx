@@ -53,6 +53,9 @@ function Template() {
         <Button icon={<MdClear />} danger disabled />
         <Button icon={<MdClear />} danger emphasis="medium" disabled />
       </div>
+      <div className="mt-2 flex items-center">
+        <Button label="Delete" danger />
+      </div>
     </div>
   );
 }
