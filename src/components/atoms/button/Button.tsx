@@ -1,51 +1,57 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { classNames } from '../../utils'
 import { ButtonPropsType } from './type'
 import { generateButtonStyle } from './utils'
 
-export const Button = ({
-  label = '',
-  variant = 'primary',
-  danger = false,
-  emphasis = 'high',
-  icon,
-  className,
-  isLoading = false,
-  disabled,
-  ...props
-}: ButtonPropsType) => {
-  return (
-    <button
-      className={classNames(
-        'py-2.5 px-4 duration-300 font-montserrat font-medium active:scale-95 hover:opacity-60 text-white rounded-lg min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-sm',
-        icon && '!px-3',
-        generateButtonStyle({ emphasis, variant, danger }),
-        (disabled || isLoading) && '!cursor-not-allowed',
-        disabled && '!opacity-70',
-        className
-      )}
-      disabled={disabled || isLoading}
-      {...props}
-    >
-      <div className="flex justify-center items-center gap-3">
-        {isLoading ? (
-          <div
-            className={classNames(
-              'custom-loader',
-              (danger || variant === 'secondary') &&
-                emphasis !== 'medium' &&
-                'white'
-            )}
-          />
-        ) : (
-          <>
-            {label && label}
-            {icon && <div className="[&_svg]:!w-6 [&_svg]:!h-6">{icon}</div>}
-          </>
+export const Button = forwardRef<HTMLButtonElement, ButtonPropsType>(
+  function Button(
+    {
+      label = '',
+      variant = 'primary',
+      danger = false,
+      emphasis = 'high',
+      icon,
+      className,
+      isLoading = false,
+      disabled,
+      ...props
+    }: ButtonPropsType,
+    ref
+  ) {
+    return (
+      <button
+        className={classNames(
+          'py-2.5 px-4 duration-300 font-montserrat font-medium active:scale-95 hover:opacity-60 text-white rounded-lg min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-sm',
+          icon && '!px-3',
+          generateButtonStyle({ emphasis, variant, danger }),
+          (disabled || isLoading) && '!cursor-not-allowed',
+          disabled && '!opacity-70',
+          className
         )}
-      </div>
-    </button>
-  )
-}
+        disabled={disabled || isLoading}
+        ref={ref}
+        {...props}
+      >
+        <div className="flex justify-center items-center gap-3">
+          {isLoading ? (
+            <div
+              className={classNames(
+                'custom-loader',
+                (danger || variant === 'secondary') &&
+                  emphasis !== 'medium' &&
+                  'white'
+              )}
+            />
+          ) : (
+            <>
+              {label && label}
+              {icon && <div className="[&_svg]:!w-6 [&_svg]:!h-6">{icon}</div>}
+            </>
+          )}
+        </div>
+      </button>
+    )
+  }
+)
 
 export default Button

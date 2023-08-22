@@ -13,7 +13,7 @@ import { classNames } from '../utils'
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [userData, setUserData] = useState<null | User>(auth.currentUser)
-
+  console.log(userData)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUserData(user)
