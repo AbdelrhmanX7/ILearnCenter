@@ -19,9 +19,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: true,
   },
-  output: 'export',
 }
 
 module.exports = nextConfig
