@@ -78,10 +78,10 @@ export default function SignUp() {
           </div>
 
           <div className="w-full text-center pt-14">
-            <span className="text-[#999999] text-sm">Not a member?</span>
+            <span className="text-[#999999] text-sm">Have an account?</span>
 
-            <Link href="/signup" className="text-[#999999] text-sm bo1">
-              Sign up now
+            <Link href="/login" className="text-[#999999] text-sm bo1">
+              Login now
             </Link>
           </div>
         </div>
