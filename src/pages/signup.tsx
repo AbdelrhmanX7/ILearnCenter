@@ -8,6 +8,7 @@ import {
 import toast from 'react-hot-toast'
 import { auth } from '../firebase'
 import { InputRef } from 'antd'
+import Router from 'next/router'
 export default function SignUp() {
   const [form, setForm] = useState({
     email: '',
@@ -30,23 +31,21 @@ export default function SignUp() {
               onChange={(event) =>
                 setForm({ ...form, email: event.target.value })
               }
-              onPressEnter={() => passwordInputRef.current?.input?.focus()}
+              onPressEnter={() => passwordInputRef.current?.focus()}
             />
             <PasswordInput
               onChange={(event) =>
                 setForm({ ...form, password: event.target.value })
               }
               ref={passwordInputRef}
-              onPressEnter={() =>
-                confirmPasswordInputRef.current?.input?.focus()
-              }
+              onPressEnter={() => confirmPasswordInputRef.current?.focus()}
             />
             <PasswordInput
               confirmPassword
               onChange={(event) =>
                 setForm({ ...form, confirmPassword: event.target.value })
               }
-              onPressEnter={() => singupButtonRef.current?.focus()}
+              onPressEnter={() => singupButtonRef.current?.click()}
               ref={confirmPasswordInputRef}
             />
             <Button
@@ -65,9 +64,12 @@ export default function SignUp() {
                       toast.success(
                         'Your sign up was successful. Please verify your email by clicking the link in the email we sent you before signing in to our service later.'
                       )
-                      sendEmailVerification(userCredential.user).then(() => {
-                        toast.success('Email verification sent!')
-                      })
+                      sendEmailVerification(userCredential.user)
+                        .then(() => {
+                          toast.success('Email verification sent!')
+                          Router.push('/verify')
+                        })
+                        .catch((err) => toast.error(err?.message))
                     })
                     .catch((err) => toast.error(err?.message))
                 }
