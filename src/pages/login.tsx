@@ -1,59 +1,56 @@
-import React from "react";
-
+import React, { useState } from 'react'
+import PasswordInput from '../components/atoms/input/PasswordInput'
+import EmailInput from '../components/atoms/input/EmailInput'
+import { Button } from '../components/atoms'
+import { auth } from '../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import toast from 'react-hot-toast'
+import Link from 'next/link'
 export default function Login() {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  })
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <div className="w-full max-w-[550px] py-20 px-10 rounded-xl border shadow-md">
-        <form className="w-full flex flex-col justify-between">
-          <h1 className="w-full text-[#555555] text-center text-4xl pb-10 font-[Montserrat-Medium]">
+      <div className="w-full max-w-[550px] sm:px-10 sm:py-20 py-10 px-5 mx-5 rounded-xl border shadow-md">
+        <div className="w-full flex flex-col justify-between">
+          <h1 className="w-full text-[#555555] text-center text-4xl pb-10 font-montserrat font-medium">
             Sign In With
           </h1>
 
-          <div className="pt-9 pb-2.5">
-            <span className="text-[#555555] font-montserrat-semibold">
-              Username
-            </span>
-          </div>
-          <div
-            className="w-full relative bg-[#f7f7f7] border border-[#e6e6e6] rounded-[10px] validate-input"
-            data-validate="Username is required"
-          >
-            <input className="input100" type="text" name="username" />
-            <span className="focus-input100"></span>
-          </div>
-
-          <div className="pt-3 pb-2.5">
-            <span className="text-[#555555] font-montserrat-semibold">
-              Password
-            </span>
-
-            <a href="#" className="text-[#999999] text-sm bo1 m-l-5">
-              Forgot?
-            </a>
-          </div>
-          <div
-            className="w-full relative bg-[#f7f7f7] border border-[#e6e6e6] rounded-[10px] validate-input"
-            data-validate="Password is required"
-          >
-            <input className="input100" type="password" name="pass" />
-            <span className="focus-input100"></span>
-          </div>
-
-          <div className="container-login100-form-btn m-t-17">
-            <button className="flex justify-center items-center px-5 w-full h-[60px] text-white bg-[#333333] duration-300 hover:bg-[#333333dc] rounded-[10px] font-montserrat-medium">
-              Sign In
-            </button>
+          <div className="flex flex-col gap-6">
+            <EmailInput
+              onChange={(event) =>
+                setForm({ ...form, email: event.target.value })
+              }
+            />
+            <PasswordInput
+              onChange={(event) =>
+                setForm({ ...form, password: event.target.value })
+              }
+            />
+            <Button
+              onClick={async () => {
+                signInWithEmailAndPassword(auth, form.email, form.password)
+                  .then(() => {
+                    toast.success('Logged in successfully')
+                  })
+                  .catch((err) => toast.error(err))
+              }}
+              label="Sign In"
+            />
           </div>
 
           <div className="w-full text-center pt-14">
             <span className="text-[#999999] text-sm">Not a member?</span>
 
-            <a href="#" className="text-[#999999] text-sm bo1">
+            <Link href="/signup" className="text-[#999999] text-sm bo1">
               Sign up now
-            </a>
+            </Link>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  );
+  )
 }

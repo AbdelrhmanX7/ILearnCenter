@@ -1,13 +1,13 @@
-import React from "react";
-import { classNames } from "../../utils";
-import { ButtonPropsType } from "./type";
-import { generateButtonStyle } from "./utils";
+import React from 'react'
+import { classNames } from '../../utils'
+import { ButtonPropsType } from './type'
+import { generateButtonStyle } from './utils'
 
 export const Button = ({
-  label = "",
-  variant = "primary",
+  label = '',
+  variant = 'primary',
   danger = false,
-  emphasis = "high",
+  emphasis = 'high',
   icon,
   className,
   isLoading = false,
@@ -17,11 +17,11 @@ export const Button = ({
   return (
     <button
       className={classNames(
-        "py-2.5 px-4 duration-300 active:scale-95 hover:opacity-80 text-white rounded-lg !font-medium min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-[0,1px,2px,0,_rgba(0,0,0,0.05)]",
-        icon && "!px-3",
+        'py-2.5 px-4 duration-300 font-montserrat font-medium active:scale-95 hover:opacity-60 text-white rounded-lg min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-sm',
+        icon && '!px-3',
         generateButtonStyle({ emphasis, variant, danger }),
-        (disabled || isLoading) && "!cursor-not-allowed",
-        disabled && "!opacity-70",
+        (disabled || isLoading) && '!cursor-not-allowed',
+        disabled && '!opacity-70',
         className
       )}
       disabled={disabled || isLoading}
@@ -31,10 +31,10 @@ export const Button = ({
         {isLoading ? (
           <div
             className={classNames(
-              "custom-loader",
-              (danger || variant === "secondary") &&
-                emphasis !== "medium" &&
-                "white"
+              'custom-loader',
+              (danger || variant === 'secondary') &&
+                emphasis !== 'medium' &&
+                'white'
             )}
           />
         ) : (
@@ -45,7 +45,7 @@ export const Button = ({
         )}
       </div>
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

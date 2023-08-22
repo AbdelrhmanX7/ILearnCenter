@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function signUp() {
+export default function SignUp() {
   return <div></div>;
 }

@@ -7,7 +7,7 @@ export const PasswordInput = ({ ...props }: InputProps) => {
       <p className="font-montserrat-semibold text-black">Password</p>
       <Input.Password
         size="large"
-        placeholder="password"
+        placeholder="Password"
         prefix={<MdLock className="w-5 h-5" />}
         allowClear
         {...props}
