@@ -17,7 +17,7 @@ const config: Config = {
         box: '0 4px 6px 0 rgb(0 0 0 / 0.05)',
       },
       fontFamily: {
-        montserrat: 'var(--font-montserrat)',
+        urbanist: 'var(--font-urbanist)',
       },
     },
   },

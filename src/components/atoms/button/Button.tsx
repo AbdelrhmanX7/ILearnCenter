@@ -21,7 +21,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonPropsType>(
     return (
       <button
         className={classNames(
-          'py-2.5 px-4 duration-300 font-montserrat font-medium active:scale-95 hover:opacity-60 text-white rounded-lg min-w-[40px] min-h-[46px] cursor-pointer border border-solid shadow-sm',
+          'py-2.5 px-4 duration-300 font-montserrat font-medium active:scale-95 hover:opacity-90 text-white rounded-lg min-w-[40px] h-[46px] cursor-pointer border border-solid shadow-sm',
           icon && '!px-3',
           generateButtonStyle({ emphasis, variant, danger }),
           (disabled || isLoading) && '!cursor-not-allowed',
@@ -44,7 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonPropsType>(
             />
           ) : (
             <>
-              {label && label}
+              {label && <p>{label}</p>}
               {icon && <div className="[&_svg]:!w-6 [&_svg]:!h-6">{icon}</div>}
             </>
           )}
