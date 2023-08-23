@@ -1,21 +1,25 @@
-import React from "react";
-import { Input, InputProps } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import React from 'react'
+import { InputProps } from 'antd'
+import Input from './Input'
+import { classNames } from '../../utils'
 
-export const EmailInput = ({ ...props }: InputProps) => {
+export const EmailInput = ({ className, size, ...props }: InputProps) => {
   return (
     <div className="flex flex-col gap-2">
-      <p className="font-montserrat-semibold text-black">Email</p>
       <Input
         size="large"
-        placeholder="Email"
+        placeholder="Enter your email"
         type="email"
-        prefix={<UserOutlined />}
         allowClear
+        className={classNames(
+          'bg-[#F7F8F9] [&_input]:!bg-[#F7F8F9] h-10 font-medium',
+          size === 'large' ? 'h-14' : size === 'middle' && 'h-[46px]',
+          className
+        )}
         {...props}
       />
     </div>
-  );
-};
+  )
+}
 
-export default EmailInput;
+export default EmailInput

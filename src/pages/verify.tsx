@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { auth } from '../firebase'
-import { EmailVerificationSuccess, VerifyEmail } from '../components/verify'
+import {
+  EmailVerificationSuccess,
+  VerifyEmail,
+} from '../components/pageComponents/verify'
 const VerifyEmailComponent = () => {
   const [isEmailVerified, setIsEmailVerified] = useState(false)
   useEffect(() => {

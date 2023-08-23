@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { sendEmailVerification } from 'firebase/auth'
 import toast from 'react-hot-toast'
 import Image from 'next/image'
-import { Button } from '../atoms'
-import { auth } from '../../firebase'
+import { Button } from '../../atoms'
+import { auth } from '../../../firebase'
 export const VerifyEmail = () => {
   const user = auth?.currentUser
   const [timeLeft, setTimeLeft] = useState(0)
