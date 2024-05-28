@@ -4,13 +4,13 @@ import { initializeApp } from 'firebase/app'
 import 'firebase/firestore'
 import { getFirestore } from 'firebase/firestore'
 const firebaseConfig = {
-  apiKey: 'AIzaSyAeAkp5Y6wPAUdBbK7816JJ8v0Kys1Iv0M',
-  authDomain: 'ilearncenterbe.firebaseapp.com',
-  projectId: 'ilearncenterbe',
-  storageBucket: 'ilearncenterbe.appspot.com',
-  messagingSenderId: '60260642566',
-  appId: '1:60260642566:web:9a0695b3834a2964b3f887',
-  measurementId: 'G-JSYVDQF0Q4',
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+  appId: 'YOUR_APP_ID',
+  measurementId: 'YOUR_MEASUREMENT_ID',
 }
 
 // Initialize Firebase
